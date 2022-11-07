@@ -2,7 +2,7 @@ import React from "react";
 
 const Banner = () => {
   return (
-    <div className="flex items-center mt-20">
+    <div className="flex items-center mt-44">
       <div className="w-1/2">
         <h1 className="text-6xl font-bold">
           Eat Healthy With

@@ -5,10 +5,12 @@ import Logo from "../../../assets/images/khaiyalamu_logo.png";
 const Header = () => {
   const navItems = (
     <>
-      <li className="mr-5 cursor-pointer">Home</li>
-      <li className="mr-5 cursor-pointer">Blog</li>
-      <li className="mr-5 cursor-pointer">About Me</li>
-      <li className="mr-5 cursor-pointer">Contact Me</li>
+      <li className="mr-8 cursor-pointer text-xl">Home</li>
+      <li className="mr-8 cursor-pointer text-xl">Blog</li>
+      <li className="mr-8 cursor-pointer text-xl">About Me</li>
+      <li className="mr-8 cursor-pointer text-xl">Contact Me</li>
+      <li className="mr-8 cursor-pointer text-xl">Login</li>
+      <li className="mr-8 cursor-pointer text-xl">Sign Up</li>
     </>
   );
 
@@ -71,14 +73,6 @@ const Header = () => {
         <div className="bg-neutral-focus text-neutral-content rounded-full w-10">
           <span>MX</span>
         </div>
-      </div>
-      <div className="">
-        <Link to="" className="btn mr-5">
-          Log In
-        </Link>
-        <Link to="" className="btn">
-          Sign Up
-        </Link>
       </div>
     </div>
   );
