@@ -7,8 +7,8 @@ const Header = () => {
     <>
       <li className="mr-8 cursor-pointer text-xl">Home</li>
       <li className="mr-8 cursor-pointer text-xl">Blog</li>
-      <li className="mr-8 cursor-pointer text-xl">About Me</li>
-      <li className="mr-8 cursor-pointer text-xl">Contact Me</li>
+      <li className="mr-8 cursor-pointer text-xl">About</li>
+      <li className="mr-8 cursor-pointer text-xl">Contact</li>
       <li className="mr-8 cursor-pointer text-xl">Login</li>
       <li className="mr-8 cursor-pointer text-xl">Sign Up</li>
     </>
