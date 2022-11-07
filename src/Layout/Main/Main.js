@@ -6,7 +6,7 @@ import Header from "../../Pages/Shared/Header/Header";
 const Main = () => {
   return (
     <div>
-      <div className="max-w-screen-xl mx-auto">
+      <div className="max-w-screen-xl mx-auto min-h-screen">
         <Header></Header>
         <Outlet></Outlet>
       </div>
