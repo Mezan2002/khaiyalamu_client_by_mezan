@@ -17,14 +17,18 @@ const Header = () => {
         Home
       </Link>
       <li className="mr-8 cursor-pointer text-xl">Blog</li>
-      <li className="mr-8 cursor-pointer text-xl">About</li>
-      <li className="mr-8 cursor-pointer text-xl">Contact</li>
       {user?.uid ? (
-        <li onClick={handleLogOut} className="mr-8 cursor-pointer text-xl">
-          Log Out
-        </li>
+        <>
+          <Link className="mr-8 cursor-pointer text-xl">My Reviews</Link>
+          <Link className="mr-8 cursor-pointer text-xl">Add Service</Link>
+          <li onClick={handleLogOut} className="mr-8 cursor-pointer text-xl">
+            Log Out
+          </li>
+        </>
       ) : (
         <>
+          <li className="mr-8 cursor-pointer text-xl">About</li>
+          <li className="mr-8 cursor-pointer text-xl">Contact</li>
           <Link to="/login" className="mr-8 cursor-pointer text-xl">
             Login
           </Link>
