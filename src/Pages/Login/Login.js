@@ -1,13 +1,25 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import GoogleIcon from "../../assets/icons/icons8-google-48.png";
+import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 
 const Login = () => {
+  const { googleLogin } = useContext(AuthContext);
   const handleLogIn = (event) => {
     event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
   };
 
-  const handleGoogleLogIn = () => {};
+  const handleGoogleLogIn = () => {
+    googleLogin()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => console.error(error));
+  };
 
   return (
     <div>
@@ -23,7 +35,6 @@ const Login = () => {
                 className="border-b-2 inputForm w-full py-3 pl-2 focus:outline-none text-xl"
                 type="email"
                 name="email"
-                // onBlur={emailOnBlue}
                 placeholder="Username or Email"
                 required
               />
@@ -49,7 +60,7 @@ const Login = () => {
             </div>
             <button className="btn btn-primary w-full mt-10 ">Login</button>
             <h4 className="my-10 text-center">
-              Don't have an account?{" "}
+              Don't have an account?
               <Link to="/signUp" className="underline">
                 Create a new account
               </Link>
