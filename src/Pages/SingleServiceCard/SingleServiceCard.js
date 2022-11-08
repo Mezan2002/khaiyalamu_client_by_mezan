@@ -17,6 +17,8 @@ const SingleServiceCard = () => {
       .then((data) => setReviews(data));
   }, []);
 
+  const serviceReview = reviews.filter((rev) => rev.serviceID === service._id);
+
   const handleSubmitReview = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -77,9 +79,21 @@ const SingleServiceCard = () => {
         </div>
       </div>
       <div className="mt-10">
-        {reviews.map((review) => (
-          <ReviewCard key={review._id} review={review}></ReviewCard>
-        ))}
+        {serviceReview.length === 0 ? (
+          <div className="card  bg-base-100 shadow-xl">
+            <div className="card-body">
+              <h2 className="text-4xl font-semibold text-center">
+                No reviews on this service
+              </h2>
+            </div>
+          </div>
+        ) : (
+          <>
+            {serviceReview.map((review) => (
+              <ReviewCard key={review._id} review={review}></ReviewCard>
+            ))}
+          </>
+        )}
       </div>
       <div>
         <div className="card mt-10 shadow-xl">
