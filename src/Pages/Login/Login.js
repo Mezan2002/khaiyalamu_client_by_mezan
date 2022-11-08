@@ -17,7 +17,6 @@ const Login = () => {
     loginWithEmailAndPassword(email, password)
       .then((result) => {
         const user = result.user;
-        // navigate(from, { replace: true });
         navigate(from, { replace: true });
         form.reset();
         console.log(user);
