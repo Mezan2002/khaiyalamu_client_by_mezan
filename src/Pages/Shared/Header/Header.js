@@ -5,7 +5,9 @@ import Logo from "../../../assets/images/khaiyalamu_logo.png";
 const Header = () => {
   const navItems = (
     <>
-      <li className="mr-8 cursor-pointer text-xl">Home</li>
+      <Link to="/" className="mr-8 cursor-pointer text-xl">
+        Home
+      </Link>
       <li className="mr-8 cursor-pointer text-xl">Blog</li>
       <li className="mr-8 cursor-pointer text-xl">About</li>
       <li className="mr-8 cursor-pointer text-xl">Contact</li>
@@ -43,7 +45,7 @@ const Header = () => {
             {navItems}
           </ul>
         </div>
-        <Link className="">
+        <Link className="" to="/">
           <img className="w-28" src={Logo} alt="" />
         </Link>
       </div>
