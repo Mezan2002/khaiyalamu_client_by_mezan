@@ -9,13 +9,22 @@ const SignUp = () => {
     event.preventDefault();
   };
 
-  const handleGoogleLogIn = () => {};
+  const handleGoogleLogIn = () => {
+    googleLogin()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => console.error(error));
+  };
 
   return (
     <div>
       <div className="min-h-screen">
-        <div className="border border-gray-500 w-11/12 lg:w-4/12 mx-auto rounded-xl pt-10 pb-10">
-          <h2 className="text-3xl font-semibold mb-5 pb-10">Create New User</h2>
+        <div className="border border-gray-500 w-11/12 lg:w-6/12 mx-auto rounded-xl pt-10 pb-10">
+          <h2 className="text-3xl font-semibold mb-5 pb-10 text-center">
+            Create New User
+          </h2>
           {/* <p className="text-red-500 mb-5">{error.slice(10, 300)}</p> */}
           <form onSubmit={handleSignUp} className="w-9/12 mx-auto">
             <div className="inputGroup ">
@@ -56,11 +65,11 @@ const SignUp = () => {
                 placeholder="Password"
               />
             </div>
-            <button className="btn btn-primary w-full mt-10 ">Login</button>
-            <h4 className="my-10">
-              Don't have an account?{" "}
-              <Link to="/register" className="underline">
-                Create a new account
+            <button className="btn btn-primary w-full mt-10 ">Sign Up</button>
+            <h4 className="my-10 text-center">
+              Already have an account?{" "}
+              <Link to="/login" className="underline">
+                Log In
               </Link>
             </h4>
             <div className="divider  mt-5">OR</div>

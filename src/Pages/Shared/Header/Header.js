@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../../../assets/images/khaiyalamu_logo.png";
+import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
 
 const Header = () => {
+  const { user, logOut } = useContext(AuthContext);
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => console.error(error));
+  };
+
   const navItems = (
     <>
       <Link to="/" className="mr-8 cursor-pointer text-xl">
@@ -11,10 +19,20 @@ const Header = () => {
       <li className="mr-8 cursor-pointer text-xl">Blog</li>
       <li className="mr-8 cursor-pointer text-xl">About</li>
       <li className="mr-8 cursor-pointer text-xl">Contact</li>
-      <Link to="/login" className="mr-8 cursor-pointer text-xl">
-        Login
-      </Link>
-      <li className="mr-8 cursor-pointer text-xl">Sign Up</li>
+      {user?.uid ? (
+        <li onClick={handleLogOut} className="mr-8 cursor-pointer text-xl">
+          Log Out
+        </li>
+      ) : (
+        <>
+          <Link to="/login" className="mr-8 cursor-pointer text-xl">
+            Login
+          </Link>
+          <Link to="/signUp" className="mr-8 cursor-pointer text-xl">
+            Sign Up
+          </Link>
+        </>
+      )}
     </>
   );
 
