@@ -13,28 +13,32 @@ const Header = () => {
 
   const navItems = (
     <>
-      <Link to="/" className="mr-6 cursor-pointer text-xl">
+      <Link to="/" className="mr-8 cursor-pointer ">
         Home
       </Link>
-      <li className="mr-6 cursor-pointer text-xl">Blog</li>
+      <li className="mr-8 cursor-pointer ">Blog</li>
+      <Link to="/services" className="mr-8 cursor-pointer ">
+        Services
+      </Link>
       {user?.uid ? (
         <>
-          <Link className="mr-6 cursor-pointer text-xl">My Reviews</Link>
-          <li onClick={handleLogOut} className="mr-6 cursor-pointer text-xl">
+          <Link className="mr-8 cursor-pointer " to="/addServices">
+            Add Service
+          </Link>
+          <Link className="mr-8 cursor-pointer ">My Reviews</Link>
+          <li onClick={handleLogOut} className="mr-8 cursor-pointer ">
             Log Out
           </li>
         </>
       ) : (
         <>
-          <li className="mr-6 cursor-pointer text-xl">About</li>
-          <li className="mr-6 cursor-pointer text-xl">Contact</li>
-          <Link className="mr-6 cursor-pointer text-xl" to="/addServices">
+          <Link className="mr-8 cursor-pointer " to="/addServices">
             Add Service
           </Link>
-          <Link to="/login" className="mr-6 cursor-pointer text-xl">
+          <Link to="/login" className="mr-8 cursor-pointer ">
             Login
           </Link>
-          <Link to="/signUp" className="mr-6 cursor-pointer text-xl">
+          <Link to="/signUp" className="mr-8 cursor-pointer ">
             Sign Up
           </Link>
         </>

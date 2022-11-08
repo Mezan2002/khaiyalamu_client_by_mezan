@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import GoogleIcon from "../../assets/icons/icons8-google-48.png";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 
@@ -17,8 +17,10 @@ const Login = () => {
     loginWithEmailAndPassword(email, password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
+        // navigate(from, { replace: true });
         navigate(from, { replace: true });
+        form.reset();
+        console.log(user);
       })
       .catch((error) => console.error(error));
   };
@@ -70,7 +72,11 @@ const Login = () => {
                 <button className="underline">Forgot Password</button>
               </div>
             </div>
-            <button className="btn btn-primary w-full mt-10 ">Login</button>
+            <input
+              className="btn btn-primary w-full mt-10 "
+              type="submit"
+              value="Log In"
+            />
             <h4 className="my-10 text-center">
               Don't have an account?
               <Link to="/signUp" className="underline">
