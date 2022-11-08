@@ -4,9 +4,23 @@ import GoogleIcon from "../../assets/icons/icons8-google-48.png";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 
 const SignUp = () => {
-  const { googleLogin } = useContext(AuthContext);
+  const { googleLogin, signUpUserWithEmailAndPassword } =
+    useContext(AuthContext);
   const handleSignUp = (event) => {
     event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const photoURL = form.photoURL.value;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    signUpUserWithEmailAndPassword(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        form.reset();
+      })
+      .catch((error) => console.error(error));
   };
 
   const handleGoogleLogIn = () => {
@@ -32,7 +46,6 @@ const SignUp = () => {
                 className="border-b-2 inputForm w-full py-2 pl-2 focus:outline-none text-xl"
                 type="text"
                 name="name"
-                // onBlur={emailOnBlue}
                 placeholder="Your Name"
                 required
               />
@@ -42,7 +55,6 @@ const SignUp = () => {
                 className="border-b-2 inputForm w-full py-2 pl-2 focus:outline-none text-xl mt-10"
                 type="text"
                 name="photoURL"
-                // onBlur={emailOnBlue}
                 placeholder="Your Photo URL"
                 required
               />
@@ -52,7 +64,6 @@ const SignUp = () => {
                 className="border-b-2 inputForm w-full py-2 pl-2 focus:outline-none text-xl mt-10"
                 type="email"
                 name="email"
-                // onBlur={emailOnBlue}
                 placeholder="Username or Email"
                 required
               />
