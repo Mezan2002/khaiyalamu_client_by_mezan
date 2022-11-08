@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layout/Main/Main";
 import AllServices from "../../Pages/AllServices/AllServices";
 import Home from "../../Pages/Home/Home/Home";
+import SingleServiceCard from "../../Pages/SingleServiceCard/SingleServiceCard";
 
 const Router = createBrowserRouter([
   {
@@ -18,6 +19,15 @@ const Router = createBrowserRouter([
         loader: () => {
           return fetch(
             "https://khaiyalamu-server-by-mezan.vercel.app/services"
+          );
+        },
+      },
+      {
+        path: "/services/:id",
+        element: <SingleServiceCard></SingleServiceCard>,
+        loader: ({ params }) => {
+          return fetch(
+            `https://khaiyalamu-server-by-mezan.vercel.app/services/${params.id}`
           );
         },
       },
