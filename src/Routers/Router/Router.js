@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layout/Main/Main";
 import AllServices from "../../Pages/AllServices/AllServices";
 import Home from "../../Pages/Home/Home/Home";
+import Login from "../../Pages/Login/Login";
 import SingleServiceCard from "../../Pages/SingleServiceCard/SingleServiceCard";
 
 const Router = createBrowserRouter([
@@ -30,6 +31,10 @@ const Router = createBrowserRouter([
             `https://khaiyalamu-server-by-mezan.vercel.app/services/${params.id}`
           );
         },
+      },
+      {
+        path: "/login",
+        element: <Login></Login>,
       },
     ],
   },

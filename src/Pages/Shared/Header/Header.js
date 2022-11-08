@@ -9,7 +9,9 @@ const Header = () => {
       <li className="mr-8 cursor-pointer text-xl">Blog</li>
       <li className="mr-8 cursor-pointer text-xl">About</li>
       <li className="mr-8 cursor-pointer text-xl">Contact</li>
-      <li className="mr-8 cursor-pointer text-xl">Login</li>
+      <Link to="/login" className="mr-8 cursor-pointer text-xl">
+        Login
+      </Link>
       <li className="mr-8 cursor-pointer text-xl">Sign Up</li>
     </>
   );
