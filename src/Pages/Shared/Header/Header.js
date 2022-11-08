@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { FaUserAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Logo from "../../../assets/images/khaiyalamu_logo.png";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
@@ -103,10 +104,14 @@ const Header = () => {
           </svg>
         </label>
       </div>
-      <div className="avatar mr-5 placeholder">
-        <div className="bg-neutral-focus text-neutral-content rounded-full w-10">
-          <span>MX</span>
-        </div>
+      <div>
+        {user?.photoURL ? (
+          <img src={user?.photoURL} className="w-12 rounded-full" alt="" />
+        ) : (
+          <div className="bg-slate-400 rounded-full h-10 w-10 flex justify-center items-center">
+            <FaUserAlt className="text-2xl"></FaUserAlt>
+          </div>
+        )}
       </div>
     </div>
   );
