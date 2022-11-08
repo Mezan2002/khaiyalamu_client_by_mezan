@@ -1,9 +1,7 @@
-import React, { useContext } from "react";
+import React from "react";
 import { FaCalendar, FaStar } from "react-icons/fa";
-import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 
 const ReviewCard = ({ review }) => {
-  const { user } = useContext(AuthContext);
   const { review: userReview, username, photoURL } = review;
   return (
     <div className="card  bg-base-100 shadow-xl mb-5">

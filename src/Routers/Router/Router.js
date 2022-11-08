@@ -5,6 +5,7 @@ import AllServices from "../../Pages/AllServices/AllServices";
 import Blogs from "../../Pages/Blogs/Blogs";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
+import MyReviews from "../../Pages/MyReviews/MyReviews";
 import SignUp from "../../Pages/SignUp/SignUp";
 import SingleServiceCard from "../../Pages/SingleServiceCard/SingleServiceCard";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
@@ -55,6 +56,10 @@ const Router = createBrowserRouter([
       {
         path: "/blogs",
         element: <Blogs></Blogs>,
+      },
+      {
+        path: "/myReviews",
+        element: <MyReviews></MyReviews>,
       },
     ],
   },

@@ -28,7 +28,9 @@ const Header = () => {
           <Link className="mr-8 cursor-pointer " to="/addServices">
             Add Service
           </Link>
-          <Link className="mr-8 cursor-pointer ">My Reviews</Link>
+          <Link className="mr-8 cursor-pointer" to="/myReviews">
+            My Reviews
+          </Link>
           <li onClick={handleLogOut} className="mr-8 cursor-pointer ">
             Log Out
           </li>
