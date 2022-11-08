@@ -1,30 +1,38 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
-import { FaCalendar, FaStar } from "react-icons/fa";
 import ReviewCard from "./ReviewCard";
 import PlaceReview from "./PlaceReview";
 
 const SingleServiceCard = () => {
   const { user } = useContext(AuthContext);
   const service = useLoaderData();
-  const { name, image, price, deliveryCharge, ratings, description } = service;
+  const { name, _id, image, price, deliveryCharge, ratings, description } =
+    service;
+  const [reviews, setReviews] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:5000/reviews")
+      .then((res) => res.json())
+      .then((data) => setReviews(data));
+  }, []);
 
   const handleSubmitReview = (event) => {
     event.preventDefault();
     const form = event.target;
     const review = form.review.value;
     const username = form.username.value;
+    const photoURL = form.photoURL.value;
     const useremail = form.useremail.value;
     const ratings = form.ratings.value;
     const reviewInfo = {
       review,
       username,
+      photoURL,
+      serviceID: _id,
       useremail,
       ratings,
     };
-
     fetch("http://localhost:5000/reviews", {
       method: "POST",
       headers: {
@@ -35,6 +43,7 @@ const SingleServiceCard = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged) {
+          form.reset();
           toast.success("Review added successfully, Thanks for your review");
         }
         console.log(data);
@@ -68,9 +77,9 @@ const SingleServiceCard = () => {
         </div>
       </div>
       <div className="mt-10">
-        <div className="card  bg-base-100 shadow-xl">
-          <ReviewCard></ReviewCard>
-        </div>
+        {reviews.map((review) => (
+          <ReviewCard key={review._id} review={review}></ReviewCard>
+        ))}
       </div>
       <div>
         <div className="card mt-10 shadow-xl">

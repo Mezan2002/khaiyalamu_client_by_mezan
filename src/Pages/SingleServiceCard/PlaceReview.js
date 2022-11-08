@@ -23,6 +23,7 @@ const PlaceReview = ({ handleSubmitReview }) => {
             required
             defaultValue={user.displayName}
             name="username"
+            readOnly
           />
           <input
             type="text"
@@ -31,6 +32,14 @@ const PlaceReview = ({ handleSubmitReview }) => {
             required
             defaultValue={user.email}
             name="useremail"
+            readOnly
+          />
+          <input
+            type="text"
+            placeholder="Your Photo URL *"
+            className="input input-bordered w-full mt-2"
+            required
+            name="photoURL"
           />
           <input
             type="text"
