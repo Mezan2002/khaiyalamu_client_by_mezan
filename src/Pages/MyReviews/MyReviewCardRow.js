@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import { FaPencilAlt, FaTrashAlt } from "react-icons/fa";
 
 const MyReviewCardRow = ({ myReview }) => {
-  const { photoURL, review, ratings, username, useremail, serviceID } =
-    myReview;
+  const { review, ratings, username, useremail, serviceID } = myReview;
 
   const [service, setService] = useState([]);
   useEffect(() => {
@@ -22,7 +21,7 @@ const MyReviewCardRow = ({ myReview }) => {
         <div className="flex items-center space-x-3">
           <div className="avatar">
             <div className="mask mask-squircle w-20 h-20">
-              <img src={myReviewedService.image} alt="" />
+              <img src={myReviewedService?.image} alt="" />
             </div>
           </div>
           <div>
