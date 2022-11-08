@@ -16,7 +16,9 @@ const Header = () => {
       <Link to="/" className="mr-8 cursor-pointer ">
         Home
       </Link>
-      <li className="mr-8 cursor-pointer ">Blog</li>
+      <Link to="/blogs" className="mr-8 cursor-pointer">
+        Blogs
+      </Link>
       <Link to="/services" className="mr-8 cursor-pointer ">
         Services
       </Link>
