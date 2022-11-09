@@ -2,9 +2,11 @@ import React, { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import GoogleIcon from "../../assets/icons/icons8-google-48.png";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
+import { useTitle } from "../../Hooks/UseTitle";
 
 const Login = () => {
   const { googleLogin, loginWithEmailAndPassword } = useContext(AuthContext);
+  useTitle("Login");
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";

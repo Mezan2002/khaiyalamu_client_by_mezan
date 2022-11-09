@@ -4,6 +4,7 @@ import ServiceCard from "../ServiceCard/ServiceCard";
 
 const Services = () => {
   const [services, setServices] = useState([]);
+
   useEffect(() => {
     fetch(" https://khaiyalamu-server-by-mezan.vercel.app/limitedServices")
       .then((res) => res.json())

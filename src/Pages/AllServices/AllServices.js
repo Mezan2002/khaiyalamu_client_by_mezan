@@ -1,10 +1,11 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
+import { useTitle } from "../../Hooks/UseTitle";
 import AllServicesCard from "./AllServicesCard";
 
 const AllServices = () => {
   const services = useLoaderData();
-
+  useTitle("Services");
   return (
     <div>
       <div className="text-center mt-10 mb-5">

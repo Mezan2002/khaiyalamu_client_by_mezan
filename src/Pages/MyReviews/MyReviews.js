@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
+import { useTitle } from "../../Hooks/UseTitle";
 import MyReviewCardRow from "./MyReviewCardRow";
 
 const MyReviews = () => {
+  useTitle("My Reviews");
   const { user } = useContext(AuthContext);
   const allReviews = useLoaderData();
   const myReviews = allReviews.filter(
