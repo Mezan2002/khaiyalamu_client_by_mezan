@@ -2,7 +2,6 @@ import { FaCalendar, FaStar } from "react-icons/fa";
 
 const ReviewCard = ({ review }) => {
   const { review: userReview, username, photoURL, _id } = review;
-
   return (
     <div className="card  bg-base-100 shadow-xl mb-5">
       {_id ? (

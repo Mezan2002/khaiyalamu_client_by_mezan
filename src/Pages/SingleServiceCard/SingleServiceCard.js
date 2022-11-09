@@ -4,8 +4,10 @@ import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 import ReviewCard from "./ReviewCard";
 import PlaceReview from "./PlaceReview";
+import { useTitle } from "../../Hooks/UseTitle";
 
 const SingleServiceCard = () => {
+  useTitle("Reviews");
   const { user } = useContext(AuthContext);
   const service = useLoaderData();
   const { name, _id, image, price, deliveryCharge, ratings, description } =

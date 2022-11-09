@@ -51,6 +51,7 @@ const AuthProvider = ({ children }) => {
     loginWithEmailAndPassword,
     googleLogin,
     logOut,
+    onAuthStateChanged,
   };
 
   return (

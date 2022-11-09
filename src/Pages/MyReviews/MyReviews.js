@@ -35,27 +35,36 @@ const MyReviews = () => {
   return (
     <div>
       <h2 className="text-center text-4xl font-bold my-10">My All Reviews</h2>
-      <div className="overflow-x-auto w-full">
-        <table className="table w-full">
-          <thead>
-            <tr>
-              <th>User Info</th>
-              <th>Review</th>
-              <th>Ratings</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            {review.map((myReview) => (
-              <MyReviewCardRow
-                myReview={myReview}
-                key={myReview._id}
-                handleDeleteReview={handleDeleteReview}
-              ></MyReviewCardRow>
-            ))}
-          </tbody>
-        </table>
-      </div>
+
+      {review.length === 0 ? (
+        <div>
+          <h2 className="text-center text-4xl mt-60">
+            No Reviews! Please Review Our Services
+          </h2>
+        </div>
+      ) : (
+        <div className="overflow-x-auto w-full">
+          <table className="table w-full">
+            <thead>
+              <tr>
+                <th>User Info</th>
+                <th>Review</th>
+                <th>Ratings</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {review.map((myReview) => (
+                <MyReviewCardRow
+                  myReview={myReview}
+                  key={myReview._id}
+                  handleDeleteReview={handleDeleteReview}
+                ></MyReviewCardRow>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
     </div>
   );
 };
