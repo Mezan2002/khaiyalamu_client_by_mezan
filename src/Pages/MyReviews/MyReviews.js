@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-import { useLoaderData } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 import { useTitle } from "../../Hooks/UseTitle";
 import MyReviewCardRow from "./MyReviewCardRow";
@@ -7,10 +6,12 @@ import MyReviewCardRow from "./MyReviewCardRow";
 const MyReviews = () => {
   useTitle("My Reviews");
   const { user } = useContext(AuthContext);
-  const allReviews = useLoaderData();
-  const myReviews = allReviews.filter(
-    (myReview) => myReview.useremail === user?.email
-  );
+  const [review, setReview] = useState([]);
+  useEffect(() => {
+    fetch(`http://localhost:5000/reviews?email=${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => setReview(data));
+  }, [user?.email]);
 
   return (
     <div>
@@ -26,7 +27,7 @@ const MyReviews = () => {
             </tr>
           </thead>
           <tbody>
-            {myReviews.map((myReview) => (
+            {review.map((myReview) => (
               <MyReviewCardRow
                 myReview={myReview}
                 key={myReview._id}

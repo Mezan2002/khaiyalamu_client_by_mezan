@@ -10,7 +10,11 @@ const ReviewCard = ({ review }) => {
           <div className="">
             <div className="flex items-center mb-5">
               <div>
-                <img className="w-14 rounded-full mr-4" src={photoURL} alt="" />
+                <img
+                  className="w-14 h-14 rounded-full mr-4"
+                  src={photoURL}
+                  alt=""
+                />
               </div>
               <div className="">
                 <div className="flex">

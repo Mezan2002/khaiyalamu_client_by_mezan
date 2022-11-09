@@ -64,9 +64,6 @@ const Router = createBrowserRouter([
             <MyReviews></MyReviews>
           </PrivateRoute>
         ),
-        loader: () => {
-          return fetch("https://khaiyalamu-server-by-mezan.vercel.app/reviews");
-        },
       },
     ],
   },
