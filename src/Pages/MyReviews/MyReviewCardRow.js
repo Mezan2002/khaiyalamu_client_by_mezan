@@ -2,19 +2,34 @@ import React, { useEffect, useState } from "react";
 import { FaPencilAlt, FaTrashAlt } from "react-icons/fa";
 
 const MyReviewCardRow = ({ myReview }) => {
-  const { review, ratings, username, useremail, serviceID } = myReview;
+  const { review, ratings, username, useremail, serviceID, _id } = myReview;
+
+  const handleDeleteReview = (id) => {
+    const proceed = window.confirm(
+      "Are you sure, you want to delete this review?"
+    );
+    if (proceed) {
+      fetch(`http://localhost:5000/reviews/${id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.deletedCount === 0) {
+            alert("Review Deleted Successfully");
+            const remaining = myReview.filter();
+          }
+        });
+    }
+  };
 
   const [service, setService] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/services")
+    fetch("https://khaiyalamu-server-by-mezan.vercel.app/services")
       .then((res) => res.json())
       .then((data) => setService(data));
   }, []);
 
   const myReviewedService = service.find((srv) => srv._id === serviceID);
-
-  console.log(myReviewedService);
-
   return (
     <tr>
       <td>
@@ -44,7 +59,11 @@ const MyReviewCardRow = ({ myReview }) => {
         <button className="btn btn-ghost" title="Edit Document">
           <FaPencilAlt className="text-2xl"></FaPencilAlt>
         </button>
-        <button className="btn btn-ghost" title="Delete Document">
+        <button
+          onClick={() => handleDeleteReview(_id)}
+          className="btn btn-ghost"
+          title="Delete Document"
+        >
           <FaTrashAlt className="text-2xl"></FaTrashAlt>
         </button>
       </th>

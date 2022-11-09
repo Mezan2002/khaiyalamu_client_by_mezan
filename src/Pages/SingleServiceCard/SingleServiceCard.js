@@ -12,7 +12,7 @@ const SingleServiceCard = () => {
     service;
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/reviews")
+    fetch("https://khaiyalamu-server-by-mezan.vercel.app/reviews")
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, []);
@@ -35,7 +35,7 @@ const SingleServiceCard = () => {
       useremail,
       ratings,
     };
-    fetch("http://localhost:5000/reviews", {
+    fetch("https://khaiyalamu-server-by-mezan.vercel.app/reviews", {
       method: "POST",
       headers: {
         "content-type": "application/json",
