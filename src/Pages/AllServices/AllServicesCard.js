@@ -8,7 +8,7 @@ const AllServicesCard = ({ service }) => {
     service;
   return (
     <div>
-      <div className="card w-96 shadow-xl">
+      <div className="card w-96  shadow-xl">
         <figure>
           <PhotoProvider>
             <PhotoView src={image}>
@@ -27,7 +27,7 @@ const AllServicesCard = ({ service }) => {
               <p>
                 {description.slice(0, 100)}...{" "}
                 <>
-                  <Link className="text-blue-800" to="">
+                  <Link className="text-blue-800" to={`/services/${_id}`}>
                     see more
                   </Link>
                 </>
