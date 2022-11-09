@@ -1,26 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { FaPencilAlt, FaTrashAlt } from "react-icons/fa";
 
-const MyReviewCardRow = ({ myReview }) => {
+const MyReviewCardRow = ({ myReview, handleDeleteReview }) => {
   const { review, ratings, username, useremail, serviceID, _id } = myReview;
-
-  const handleDeleteReview = (id) => {
-    const proceed = window.confirm(
-      "Are you sure, you want to delete this review?"
-    );
-    if (proceed) {
-      fetch(`http://localhost:5000/reviews/${id}`, {
-        method: "DELETE",
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.deletedCount === 1) {
-            alert("Review Deleted Successfully");
-            const remaining = myReview.filter();
-          }
-        });
-    }
-  };
 
   const [service, setService] = useState([]);
   useEffect(() => {
