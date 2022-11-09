@@ -13,6 +13,8 @@ const MyReviews = () => {
       .then((data) => setReview(data));
   }, [user?.email]);
 
+  console.log(review);
+
   const handleDeleteReview = (id) => {
     const proceed = window.confirm(
       "Are you sure, you want to delete this review?"
