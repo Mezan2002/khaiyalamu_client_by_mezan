@@ -10,8 +10,6 @@ const Login = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
-  console.log(from);
-
   const handleLogIn = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -21,9 +19,28 @@ const Login = () => {
     loginWithEmailAndPassword(email, password)
       .then((result) => {
         const user = result.user;
-        navigate(from, { replace: true });
-        form.reset();
         console.log(user);
+        const currentUser = {
+          email: user.email,
+        };
+        // getting JWT token start
+        fetch("http://localhost:5000/jwt", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(currentUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            // set in local storage start
+            localStorage.setItem("token", data.token);
+            navigate(from, { replace: true });
+            form.reset();
+            // set in local storage end
+          });
+        // getting JWT token end
       })
       .catch((error) => console.error(error));
   };

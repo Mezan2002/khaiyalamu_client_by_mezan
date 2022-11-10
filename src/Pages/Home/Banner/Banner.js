@@ -8,7 +8,7 @@ const Banner = () => {
           Eat Healthy With
           <span className="text-orange-500"> Khaiyalamu</span>
         </h1>
-        <p className="text-xl my-10 capitalize">
+        <p className="my-10 capitalize">
           We serve healthy foods and Our foods is totally Home Maded and
           Hygienic. So don't waste your time order now for free home delivery
         </p>

@@ -5,13 +5,20 @@ import MyReviewCardRow from "./MyReviewCardRow";
 
 const MyReviews = () => {
   useTitle("My Reviews");
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
   const [review, setReview] = useState([]);
   useEffect(() => {
-    fetch(
-      `https://khaiyalamu-server-by-mezan.vercel.app/reviews?email=${user?.email}`
-    )
-      .then((res) => res.json())
+    fetch(`http://localhost:5000/reviews?email=${user?.email}`, {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    })
+      .then((res) => {
+        if (res.status === 401) {
+          logOut();
+        }
+        return res.json();
+      })
       .then((data) => setReview(data));
   }, [user?.email]);
 

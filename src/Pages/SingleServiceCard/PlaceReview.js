@@ -23,7 +23,6 @@ const PlaceReview = ({ handleSubmitReview }) => {
             required
             defaultValue={user.displayName}
             name="username"
-            readOnly
           />
           <input
             type="text"
