@@ -8,19 +8,19 @@ const MyReviews = () => {
   const { user } = useContext(AuthContext);
   const [review, setReview] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/reviews?email=${user?.email}`)
+    fetch(
+      `https://khaiyalamu-server-by-mezan.vercel.app/reviews?email=${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => setReview(data));
   }, [user?.email]);
-
-  console.log(review);
 
   const handleDeleteReview = (id) => {
     const proceed = window.confirm(
       "Are you sure, you want to delete this review?"
     );
     if (proceed) {
-      fetch(`http://localhost:5000/reviews/${id}`, {
+      fetch(`https://khaiyalamu-server-by-mezan.vercel.app/reviews/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -34,6 +34,11 @@ const MyReviews = () => {
     }
   };
 
+  const handleUpdateReview = (id) => {
+    fetch(`https://khaiyalamu-server-by-mezan.vercel.app/reviews/${id}`)
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  };
   return (
     <div>
       <h2 className="text-center text-4xl font-bold my-10">My All Reviews</h2>
@@ -61,6 +66,7 @@ const MyReviews = () => {
                   myReview={myReview}
                   key={myReview._id}
                   handleDeleteReview={handleDeleteReview}
+                  handleUpdateReview={handleUpdateReview}
                 ></MyReviewCardRow>
               ))}
             </tbody>

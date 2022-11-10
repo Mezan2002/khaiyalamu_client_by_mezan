@@ -8,6 +8,7 @@ import Login from "../../Pages/Login/Login";
 import MyReviews from "../../Pages/MyReviews/MyReviews";
 import SignUp from "../../Pages/SignUp/SignUp";
 import SingleServiceCard from "../../Pages/SingleServiceCard/SingleServiceCard";
+import UpdateReview from "../../Pages/UpdateReview/UpdateReview";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const Router = createBrowserRouter([
@@ -64,6 +65,10 @@ const Router = createBrowserRouter([
             <MyReviews></MyReviews>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/reviews/:id",
+        element: <UpdateReview></UpdateReview>,
       },
     ],
   },
