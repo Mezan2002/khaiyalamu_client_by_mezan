@@ -4,9 +4,13 @@ import AboutUsImage from "../../../assets/images/aboutUsImage.png";
 const About = () => {
   return (
     <div>
-      <div className="flex items-center my-32">
+      <div className="flex flex-col lg:flex-row items-center my-32">
         <div className="w-1/2">
-          <img className="w-11/12 mx-auto" src={AboutUsImage} alt="" />
+          <img
+            className="lg:w-11/12 lg:mx-auto w-96"
+            src={AboutUsImage}
+            alt=""
+          />
         </div>
         <div className="w-1/2">
           <h2 className="text-3xl font-bold">About Me</h2>

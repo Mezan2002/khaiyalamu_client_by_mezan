@@ -17,7 +17,7 @@ const Services = () => {
         Our Service is to made a healthy and hygienic food at home and delivery
         it on time in a lowest cost
       </h2>
-      <div className="flex justify-between">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {services.map((service) => (
           <ServiceCard key={service._id} service={service}></ServiceCard>
         ))}

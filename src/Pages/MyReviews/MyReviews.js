@@ -60,8 +60,8 @@ const MyReviews = () => {
           </h2>
         </div>
       ) : (
-        <div className="overflow-x-auto w-full">
-          <table className="table w-full">
+        <div className="lg:overflow-x-auto w-full">
+          <table className="table lg:w-full">
             <thead>
               <tr>
                 <th>User Info</th>

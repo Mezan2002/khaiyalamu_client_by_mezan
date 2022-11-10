@@ -6,7 +6,7 @@ const Contact = () => {
       <div>
         <h2 className="text-center text-4xl font-bold mb-10">Get In Touch</h2>
       </div>
-      <div className="grid grid-cols-2 gap-5">
+      <div className="lg:grid lg:grid-cols-2 gap-5">
         <div>
           <img
             className="rounded-xl"
