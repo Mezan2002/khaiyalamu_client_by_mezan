@@ -1,14 +1,12 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaPencilAlt, FaTrashAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 
 const MyReviewCardRow = ({
   myReview,
   handleDeleteReview,
   handleUpdateReview,
 }) => {
-  const { user } = useContext(AuthContext);
   const { review, ratings, username, useremail, serviceID, _id } = myReview;
 
   const [service, setService] = useState([]);

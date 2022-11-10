@@ -23,11 +23,6 @@ const Router = createBrowserRouter([
       {
         path: "/services",
         element: <AllServices></AllServices>,
-        loader: () => {
-          return fetch(
-            "https://khaiyalamu-server-by-mezan.vercel.app/services"
-          );
-        },
       },
       {
         path: "/services/:id",
