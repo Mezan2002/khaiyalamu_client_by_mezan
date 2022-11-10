@@ -6,7 +6,7 @@ import { useTitle } from "../../Hooks/UseTitle";
 
 const SignUp = () => {
   useTitle("Sign Up");
-  const { googleLogin, signUpUserWithEmailAndPassword } =
+  const { googleLogin, signUpUserWithEmailAndPassword, updateUser } =
     useContext(AuthContext);
   const handleSignUp = (event) => {
     event.preventDefault();
@@ -20,9 +20,24 @@ const SignUp = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        handleUser(name, photoURL);
         form.reset();
       })
       .catch((error) => console.error(error));
+  };
+
+  const handleUser = (name, photoURL) => {
+    const userInfo = {
+      displayName: name,
+      photoURL: photoURL,
+    };
+
+    updateUser(userInfo)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => console.log(error));
   };
 
   const handleGoogleLogIn = () => {
