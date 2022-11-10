@@ -24,7 +24,7 @@ const Login = () => {
           email: user.email,
         };
         // getting JWT token start
-        fetch("http://localhost:5000/jwt", {
+        fetch("https://khaiyalamu-server-by-mezan.vercel.app/jwt", {
           method: "POST",
           headers: {
             "content-type": "application/json",

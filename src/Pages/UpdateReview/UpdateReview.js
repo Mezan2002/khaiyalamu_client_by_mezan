@@ -24,7 +24,7 @@ const UpdateReview = () => {
       ratings,
     };
 
-    fetch(`http://localhost:5000/reviews/${_id}`, {
+    fetch(`https://khaiyalamu-server-by-mezan.vercel.app/reviews/${_id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

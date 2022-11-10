@@ -65,7 +65,9 @@ const Router = createBrowserRouter([
         path: "/reviews/:id",
         element: <UpdateReview></UpdateReview>,
         loader: ({ params }) => {
-          return fetch(`http://localhost:5000/reviews/${params.id}`);
+          return fetch(
+            `https://khaiyalamu-server-by-mezan.vercel.app/reviews/${params.id}`
+          );
         },
       },
     ],
