@@ -49,7 +49,9 @@ const SingleServiceCard = () => {
       .then((data) => {
         if (data.acknowledged) {
           form.reset();
-          toast.success("Review added successfully, Thanks for your review");
+          toast.success(
+            "Review added successfully, Thanks for your review. Please Reload to see your review"
+          );
         }
         console.log(data);
       });

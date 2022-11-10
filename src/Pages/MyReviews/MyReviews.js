@@ -5,7 +5,7 @@ import MyReviewCardRow from "./MyReviewCardRow";
 
 const MyReviews = () => {
   useTitle("My Reviews");
-  const { user, logOut } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const [review, setReview] = useState([]);
   useEffect(() => {
     fetch(
@@ -16,12 +16,7 @@ const MyReviews = () => {
         },
       }
     )
-      .then((res) => {
-        if (res.status === 401) {
-          logOut();
-        }
-        return res.json();
-      })
+      .then((res) => res.json())
       .then((data) => setReview(data));
   }, [user?.email]);
 

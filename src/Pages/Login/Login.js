@@ -24,7 +24,7 @@ const Login = () => {
           email: user?.email,
         };
         // getting JWT token start
-        /* fetch("https://khaiyalamu-server-by-mezan.vercel.app/jwt", {
+        fetch("https://khaiyalamu-server-by-mezan.vercel.app/jwt", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -39,7 +39,7 @@ const Login = () => {
             navigate(from, { replace: true });
             form.reset();
             // set in local storage end
-          }); */
+          });
         // getting JWT token end
       })
       .catch((error) => console.error(error));
