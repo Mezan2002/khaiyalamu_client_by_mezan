@@ -1,11 +1,49 @@
-import React, { useContext } from "react";
-import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
+import React from "react";
+import toast from "react-hot-toast";
+import { useLoaderData } from "react-router-dom";
 
-const UpdateReview = ({ handleEditReview }) => {
-  const { user } = useContext(AuthContext);
+const UpdateReview = () => {
+  const review = useLoaderData();
+  const { useremail, username, _id } = review;
+  console.log(review);
+
+  const handleEditReview = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const review = form.review.value;
+    const username = form.username.value;
+    const useremail = form.useremail.value;
+    const photoURL = form.photoURL.value;
+    const ratings = form.ratings.value;
+
+    const reviewInfo = {
+      review,
+      username,
+      useremail,
+      photoURL,
+      ratings,
+    };
+
+    fetch(`http://localhost:5000/reviews/${_id}`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(reviewInfo),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount === 1) {
+          toast.success("Review Updated");
+          form.reset();
+        }
+        console.log(data);
+      });
+  };
+
   return (
     <div>
-      <h3 className="font-bold text-lg mb-10 text-center">Update Review</h3>
+      <h3 className="font-bold text-4xl mb-10 text-center">Update Review</h3>
       <form onSubmit={handleEditReview} className="flex flex-col">
         <textarea
           className="textarea textarea-bordered w-full h-48"
@@ -18,16 +56,15 @@ const UpdateReview = ({ handleEditReview }) => {
           placeholder="Your Name *"
           className="input input-bordered w-full mt-2"
           required
-          defaultValue={user.displayName}
+          defaultValue={username}
           name="username"
-          readOnly
         />
         <input
           type="text"
           placeholder="Your Email *"
           className="input input-bordered w-full mt-2"
           required
-          defaultValue={user.email}
+          defaultValue={useremail}
           name="useremail"
           readOnly
         />
